@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="400" height="400">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#3a3225"/>
+      <stop offset="100%" stop-color="#1f1a10"/>
+    </radialGradient>
+  </defs>
+  <!-- outer ring -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#2b2418" stroke-width="2" opacity="0.35"/>
+  <circle cx="100" cy="100" r="90" fill="url(#bg)"/>
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#fbdfb1" stroke-width="0.8" opacity="0.35"/>
+  <!-- inner geometric dots -->
+  <g fill="#fbdfb1" opacity="0.5">
+    <circle cx="100" cy="20" r="1.5"/>
+    <circle cx="100" cy="180" r="1.5"/>
+    <circle cx="20" cy="100" r="1.5"/>
+    <circle cx="180" cy="100" r="1.5"/>
+    <circle cx="44" cy="44" r="1"/>
+    <circle cx="156" cy="44" r="1"/>
+    <circle cx="44" cy="156" r="1"/>
+    <circle cx="156" cy="156" r="1"/>
+  </g>
+  <!-- chef hat -->
+  <g fill="#fbdfb1">
+    <path d="M70 78 C70 64, 80 56, 92 56 C94 50, 100 46, 106 46 C110 46, 114 48, 116 51 C118 49, 122 48, 125 48 C133 48, 139 54, 139 62 C139 64, 138 65, 138 66 C144 68, 148 73, 148 80 C148 87, 142 92, 134 92 L76 92 C70 92, 66 87, 66 82 C66 79, 67 77, 70 76 C69 75, 69 73, 70 78 Z"/>
+    <!-- hat band -->
+    <rect x="70" y="96" width="60" height="9" rx="1.5"/>
+  </g>
+  <!-- chef hat pleats -->
+  <g stroke="#1f1a10" stroke-width="0.8" fill="none" opacity="0.5">
+    <path d="M82 75 Q84 70, 86 75"/>
+    <path d="M96 72 Q98 67, 100 72"/>
+    <path d="M110 73 Q112 68, 114 73"/>
+    <path d="M124 76 Q126 71, 128 76"/>
+  </g>
+  <!-- wordmark: AAMIR CAFE -->
+  <g fill="#fbdfb1" font-family="Georgia, serif" font-weight="700" text-anchor="middle">
+    <text x="100" y="128" font-size="18" letter-spacing="0">Aamir Cafe</text>
+    <text x="100" y="146" font-size="9" letter-spacing="3" fill="#f6c272">RESTAURANT</text>
+  </g>
+  <!-- crossed utensils below wordmark -->
+  <g stroke="#fbdfb1" stroke-width="1.8" stroke-linecap="round" fill="#fbdfb1">
+    <!-- fork -->
+    <line x1="83" y1="160" x2="91" y2="172"/>
+    <line x1="80" y1="163" x2="88" y2="175"/>
+    <line x1="78" y1="166" x2="85" y2="178"/>
+    <!-- spoon -->
+    <line x1="117" y1="160" x2="109" y2="172"/>
+    <ellipse cx="120" cy="158" rx="3.5" ry="5" transform="rotate(35 120 158)" fill="#fbdfb1"/>
+  </g>
+  <!-- small khatim stars at top -->
+  <g fill="#f6c272">
+    <path d="M100 12 l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" opacity="0.7"/>
+  </g>
+</svg>

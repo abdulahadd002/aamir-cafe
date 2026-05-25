@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  /* Aamir Cafe — Pashtoon/Afghan-leaning palette.
+     Warmer earth + saffron + deep teal accent. Slate kept for ink only. */
+
+  /* Ink scale — used sparingly, only for text */
+  --color-slate-25: #f7f5f1;
+  --color-slate-50: #f1ede5;
+  --color-slate-100: #e6dfd1;
+  --color-slate-200: #cdc3ad;
+  --color-slate-300: #aa9c7f;
+  --color-slate-400: #8a7c5e;
+  --color-slate-500: #5e5238;
+  --color-slate-600: #3d3424;
+  --color-slate-700: #2b2418;
+  --color-slate-800: #1f1a10;
+  --color-slate-900: #14110a;
+  --color-slate-950: #0a0805;
+
+  /* Sand / cream — surfaces */
+  --color-sand-50: #fbf4e1;
+  --color-sand-100: #f4e9c8;
+  --color-sand-200: #ead7a4;
+  --color-sand-300: #d9bd76;
+  --color-sand-400: #c19f4d;
+  --color-sand-500: #9a7d33;
+
+  /* Saffron — primary accent (from printed menu) */
+  --color-saffron-50: #fdf2e0;
+  --color-saffron-100: #fbdfb1;
+  --color-saffron-200: #f6c272;
+  --color-saffron-300: #ee9c34;
+  --color-saffron-400: #d97612;
+  --color-saffron-500: #b25a0a;
+  --color-saffron-600: #8a4308;
+  --color-saffron-700: #5c2d06;
+
+  /* Terracotta — secondary warmth (used for ornaments, hover states) */
+  --color-terracotta-100: #f5d5be;
+  --color-terracotta-300: #d97757;
+  --color-terracotta-500: #a8431f;
+  --color-terracotta-700: #6e2a10;
+
+  /* Deep teal — Afghan accent (signage, badges, contrast against saffron) */
+  --color-teal-100: #c6dcd9;
+  --color-teal-300: #5b938e;
+  --color-teal-500: #2e5d59;
+  --color-teal-700: #1a3a37;
+  --color-teal-900: #0d2422;
+
+  /* Surfaces */
+  --color-canvas: #fbf4e1;
+  --color-ink: #14110a;
+  --color-line: rgba(43, 36, 24, 0.14);
+
+  /* Fonts */
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), "SFMono-Regular", "Menlo", monospace;
+  --font-urdu: var(--font-noto-naskh), "Noto Naskh Arabic", "Geeza Pro", "Times New Roman", serif;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Subtle ground texture — like printed kraft paper */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'><g fill='%232b2418' fill-opacity='0.045'><path d='M40 0l8 32 32 8-32 8-8 32-8-32L0 40l32-8z'/><circle cx='10' cy='10' r='1'/><circle cx='70' cy='70' r='1'/><circle cx='70' cy='10' r='1'/><circle cx='10' cy='70' r='1'/></g></svg>");
+    background-size: 80px 80px;
+    opacity: 0.7;
+  }
+
+  ::selection {
+    background: var(--color-saffron-300);
+    color: var(--color-slate-900);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Fine paper grain over everything */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.04;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+}
+
+/* Urdu/Pashto labels — Noto Naskh Arabic, right-to-left */
+.urdu {
+  font-family: var(--font-urdu);
+  direction: rtl;
+  unicode-bidi: isolate;
+  font-weight: 500;
+  letter-spacing: 0;
+}
