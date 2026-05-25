@@ -47,7 +47,6 @@ function SignatureCard({
   const palette = isPrimary
     ? "bg-[var(--color-slate-800)] text-[var(--color-sand-50)]"
     : "bg-[var(--color-sand-100)] text-[var(--color-slate-800)]";
-  const accentTone = isPrimary ? "text-[var(--color-sand-300)]" : "text-[var(--color-slate-500)]";
 
   return (
     <motion.article

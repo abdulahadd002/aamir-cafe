@@ -1,6 +1,6 @@
 import { cn } from "@/lib/cn";
 
-type Variant =
+export type Variant =
   | "soup"
   | "dry-item"
   | "chinese"

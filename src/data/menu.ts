@@ -1,6 +1,7 @@
 export type MenuItem = {
   name: string;
-  price: number | string;
+  /** Single price (PKR number, or string like "On request"). Omitted for platters that use full/half pricing. */
+  price?: number | string;
   description?: string;
   full?: number;
   half?: number;

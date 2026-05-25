@@ -4,7 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { menu, type MenuCategory, type MenuItem } from "@/data/menu";
 import { Price } from "@/components/ui/Price";
-import { DishIcon, categoryIcon } from "@/components/brand/DishIcon";
+import { DishIcon, categoryIcon, type Variant } from "@/components/brand/DishIcon";
 import { KhatimStar, OrnamentBand } from "@/components/brand/Ornaments";
 import { cn } from "@/lib/cn";
 
@@ -239,7 +239,7 @@ function CategorySection({
       </header>
 
       {isPlatters ? (
-        <PlatterRows items={category.items} variant={variant} />
+        <PlatterRows items={category.items} />
       ) : (
         <ItemRows items={category.items} variant={variant} />
       )}
@@ -247,7 +247,7 @@ function CategorySection({
   );
 }
 
-function ItemRows({ items, variant }: { items: MenuItem[]; variant: keyof typeof categoryIcon | string }) {
+function ItemRows({ items, variant }: { items: MenuItem[]; variant: Variant }) {
   return (
     <ul className="grid grid-cols-1 gap-x-6 gap-y-3 md:grid-cols-2">
       {items.map((item, i) => (
@@ -256,11 +256,7 @@ function ItemRows({ items, variant }: { items: MenuItem[]; variant: keyof typeof
           className="group flex items-center gap-4 rounded-2xl border border-[var(--color-line)] bg-[var(--color-sand-50)] p-4 transition-colors hover:border-[var(--color-saffron-400)]/40 hover:bg-white"
         >
           <span className="grid h-12 w-12 place-items-center rounded-xl bg-[var(--color-saffron-400)]/10">
-            <DishIcon
-              variant={(variant as keyof typeof categoryIcon) || "soup"}
-              className="h-7 w-7"
-              tone="var(--color-saffron-500)"
-            />
+            <DishIcon variant={variant} className="h-7 w-7" tone="var(--color-saffron-500)" />
           </span>
           <div className="flex-1">
             <div className="text-[1rem] font-medium tracking-tight text-[var(--color-slate-800)]">
@@ -277,7 +273,7 @@ function ItemRows({ items, variant }: { items: MenuItem[]; variant: keyof typeof
   );
 }
 
-function PlatterRows({ items }: { items: MenuItem[]; variant: string }) {
+function PlatterRows({ items }: { items: MenuItem[] }) {
   return (
     <ul className="grid grid-cols-1 gap-4">
       {items.map((p) => (
